@@ -1,4 +1,6 @@
 from PIL import Image
+import watermark
+# from watermark import add_watermark
 
 images = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,
@@ -7,6 +9,7 @@ images = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 
 print(len(images))
 filename = '../../pdfs/sohm_2014/page_1/1.png'
+
 with Image.open(filename) as im:
     width, height = im.size
     print(im.size)
@@ -20,5 +23,7 @@ with Image.open(filename) as im:
     print im.histogram() 
     print im.getextrema()
     print im.getpixel((1,1))
+   
 # page_68 is the crap images 
+watermark.main('../../pdfs/sohm_2014/page_1/3.png')
 
