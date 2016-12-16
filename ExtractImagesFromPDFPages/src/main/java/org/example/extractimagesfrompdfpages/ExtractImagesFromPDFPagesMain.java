@@ -32,7 +32,7 @@ public class ExtractImagesFromPDFPagesMain {
             for (PDPage page : list) {
                 Boolean alreadyCreatedFolderForThisPage = false;
                 File thePDFFileDirectory = thePDFFile.getParentFile();
-                File thePDFPageFolder = new File(thePDFFileDirectory.getAbsolutePath()+"/temp_images"+"/page_"+i);
+                File thePDFPageFolder = new File(thePDFFileDirectory.getAbsolutePath()+"/temp_images"+"/"+i);
                 PDResources pdResources = page.getResources();
                 int j = 1;
                 for (COSName c : pdResources.getXObjectNames()) {
