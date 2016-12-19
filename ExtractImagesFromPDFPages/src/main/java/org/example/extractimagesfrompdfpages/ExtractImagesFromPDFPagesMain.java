@@ -45,8 +45,9 @@ public class ExtractImagesFromPDFPagesMain {
                         File file = new File(thePDFPageFolder.getAbsolutePath()+"/" + j + ".png");
                         ImageIO.write(((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) o).getImage(), "png", file);
                         System.out.println(thePDFPageFolder.getAbsolutePath()+"/" + j + ".png");
+                        j++;
                     }
-                    j++;
+                    
                 }
                 i++;
             }
