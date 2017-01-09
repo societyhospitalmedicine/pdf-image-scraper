@@ -32,12 +32,12 @@ public class ExtractImagesFromPDFPagesMain {
             for (PDPage page : list) {
                 Boolean alreadyCreatedFolderForThisPage = false;
                 File thePDFFileDirectory = thePDFFile.getParentFile();
-                File thePDFPageFolder = new File(thePDFFileDirectory.getAbsolutePath()+"/temp_images"+"/"+i);
+                File thePDFPageFolder = new File(thePDFFileDirectory.getAbsolutePath()+"/temp_images"+"/page_"+i);
                 PDResources pdResources = page.getResources();
                 int j = 1;
                 for (COSName c : pdResources.getXObjectNames()) {
                     PDXObject o = pdResources.getXObject(c);
-                    if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject && j<2 && (i>30 && i<200) ) {
+                    if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) {
                         if (alreadyCreatedFolderForThisPage == false){
                             thePDFPageFolder.mkdirs();
                             alreadyCreatedFolderForThisPage = true;
@@ -45,9 +45,8 @@ public class ExtractImagesFromPDFPagesMain {
                         File file = new File(thePDFPageFolder.getAbsolutePath()+"/" + j + ".png");
                         ImageIO.write(((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) o).getImage(), "png", file);
                         System.out.println(thePDFPageFolder.getAbsolutePath()+"/" + j + ".png");
-                        j++;
                     }
-                    
+                    j++;
                 }
                 i++;
             }
