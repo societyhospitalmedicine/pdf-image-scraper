@@ -37,7 +37,7 @@ public class ExtractImagesFromPDFPagesMain {
                 int j = 1;
                 for (COSName c : pdResources.getXObjectNames()) {
                     PDXObject o = pdResources.getXObject(c);
-                    if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) {
+                    if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject && j<2 && (i>30 && i<200) ) {
                         if (alreadyCreatedFolderForThisPage == false){
                             thePDFPageFolder.mkdirs();
                             alreadyCreatedFolderForThisPage = true;

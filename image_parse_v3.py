@@ -25,7 +25,7 @@ p = subprocess.Popen(['java'] +argList, stdin=subprocess.PIPE, stdout=subprocess
 # (stdoutdata, stderrdata) = p.communicate()
 for line in p.stdout:
     image = open(line, "wb")
-    print image.read()
+    print image
 
 #### loop through all created files in temp directory
 # print 'dfdf'
