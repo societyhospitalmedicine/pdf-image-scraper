@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+// import net.java.dev.JaiImageIo;
 import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -42,9 +43,12 @@ public class ExtractImagesFromPDFPagesMain {
                             thePDFPageFolder.mkdirs();
                             alreadyCreatedFolderForThisPage = true;
                         }
+                       
                         File file = new File(thePDFPageFolder.getAbsolutePath()+"/" + j + ".png");
                         ImageIO.write(((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) o).getImage(), "png", file);
                         System.out.println(thePDFPageFolder.getAbsolutePath()+"/" + j + ".png");
+                            
+                        
                         j++;
                     }
                     
